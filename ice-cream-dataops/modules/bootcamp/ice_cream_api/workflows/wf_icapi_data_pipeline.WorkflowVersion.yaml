@@ -13,7 +13,7 @@ workflowDefinition:
     description: Create asset hierarchy task
     retries: 3
     timeout: 720
-    onFailure: 'skipTask'
+    onFailure: 'abortWorkflow'
   # contextualize_ts_assets
   - externalId: contextualize_ts_assets_task
     type: 'transformation'
@@ -25,7 +25,7 @@ workflowDefinition:
     description: Contextualize TS assets task
     retries: 3
     timeout: 720
-    onFailure: 'skipTask'
+    onFailure: 'abortWorkflow'
     dependsOn:
       - externalId: create_asset_hierarchy_task
   # icapi_datapoints_extractor
